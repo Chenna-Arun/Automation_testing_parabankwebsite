@@ -84,8 +84,14 @@ You can also run the tests step by step:
    - Run **"3.1 Generate Complete Test Report"** to generate an HTML report
    - Run **"3.2 Download Complete Report"** to download the report
 
+## Accessing Reports and Screenshots
 
-After the tests finish executing, you can find both screenshots and HTML reports inside the /report folder.
+After the tests finish executing, you can find both screenshots and HTML reports inside the `/reports` folder:
+
+- **HTML Reports**: Comprehensive test execution reports with detailed results
+- **Screenshots**: Visual evidence of UI test execution captured during testing
+
+The reports folder is automatically created when tests are executed and contains timestamped report files for easy identification.
 
 ## Test Workflow
 
