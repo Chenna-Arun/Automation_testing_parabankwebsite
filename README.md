@@ -84,6 +84,9 @@ You can also run the tests step by step:
    - Run **"3.1 Generate Complete Test Report"** to generate an HTML report
    - Run **"3.2 Download Complete Report"** to download the report
 
+
+After the tests finish executing, you can find both screenshots and HTML reports inside the /report folder.
+
 ## Test Workflow
 
 ### UI Tests (Sequential Authentication)
