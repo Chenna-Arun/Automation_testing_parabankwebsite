@@ -1,0 +1,232 @@
+{
+	"info": {
+		"_postman_id": "complete-ui-testing-with-3-api",
+		"name": "Complete UI Testing Suite + 3 API Tests",
+		"description": "UI Testing Sequential Workflow (Steps 1-8) + 3 Essential API Tests",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"variable": [
+		{
+			"key": "baseUrl",
+			"value": "http://localhost:8080",
+			"type": "string"
+		},
+		{
+			"key": "suiteId",
+			"value": "",
+			"type": "string"
+		},
+		{
+			"key": "runId",
+			"value": "",
+			"type": "string"
+		}
+	],
+	"item": [
+		{
+			"name": "Section 1: Create Suite & Batch Add UI + API Tests",
+			"item": [
+				{
+					"name": "1.1 Create Test Suite",
+					"event": [{
+						"listen": "test",
+						"script": {
+							"exec": [
+								"if (pm.response.code === 200 || pm.response.code === 201) {",
+								"    const responseJson = pm.response.json();",
+								"    if (responseJson.data && responseJson.data.suiteId) {",
+								"        pm.collectionVariables.set('suiteId', responseJson.data.suiteId);",
+								"        console.log('✅ Test Suite Created - ID:', responseJson.data.suiteId);",
+								"    }",
+								"}"
+							]
+						}
+					}],
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"name\": \"Complete UI Testing Suite + 3 API Tests\",\n  \"description\": \"Sequential UI Testing (Signup→Login→Operations) + Essential API Tests\",\n  \"environment\": \"default\",\n  \"timeout\": 300,\n  \"retryCount\": 1,\n  \"isActive\": true\n}"
+						},
+						"url": {"raw": "{{baseUrl}}/suites", "host": ["{{baseUrl}}"], "path": ["suites"]}
+					}
+				},
+				{
+					"name": "1.2 Batch Create UI Tests (Steps 1-8) + 3 API Tests",
+					"event": [{
+						"listen": "test",
+						"script": {
+							"exec": [
+								"if (pm.response.code === 200 || pm.response.code === 201) {",
+								"    const responseJson = pm.response.json();",
+								"    console.log('✅ All UI + API Test Cases Created Successfully');",
+								"    console.log('📊 Total Created:', responseJson.testCases ? responseJson.testCases.length : 0);",
+								"    console.log('🎯 Ready for execution');",
+								"    console.log('📱 UI Tests: 11 (with sequential authentication)');",
+								"    console.log('🌐 API Tests: 3 (essential functionalities)');",
+								"} else {",
+								"    console.log('❌ Batch Creation Failed:', pm.response.text());",
+								"}"
+							]
+						}
+					}],
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"testCases\": [\n    {\n      \"name\": \"UI Step 0: User Registration (Signup)\",\n      \"type\": \"UI\",\n      \"functionality\": \"register\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/register.htm\\\", \\\"firstName\\\": \\\"John\\\", \\\"lastName\\\": \\\"Doe\\\", \\\"username\\\": \\\"testuser_ui\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 60,\n      \"tags\": \"ui,register,screenshot,step0\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 0: User Login\",\n      \"type\": \"UI\",\n      \"functionality\": \"login\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/index.htm\\\", \\\"username\\\": \\\"testuser\\\", \\\"password\\\": \\\"testpass\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 60,\n      \"tags\": \"ui,login,screenshot,step0\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 1: Open Account (Authenticated)\",\n      \"type\": \"UI\",\n      \"functionality\": \"openaccount\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/openaccount.htm\\\", \\\"accountType\\\": \\\"CHECKING\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 90,\n      \"tags\": \"ui,openaccount,screenshot,step1\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 2: Account Overview (Authenticated)\",\n      \"type\": \"UI\",\n      \"functionality\": \"accountoverview\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/overview.htm\\\"}\",\n      \"priority\": \"MEDIUM\",\n      \"timeout\": 90,\n      \"tags\": \"ui,overview,screenshot,step2\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 3: Transfer Funds (Authenticated)\",\n      \"type\": \"UI\",\n      \"functionality\": \"transferfunds\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/transfer.htm\\\", \\\"amount\\\": \\\"100\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 90,\n      \"tags\": \"ui,transfer,screenshot,step3\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 4: Pay Bills (Authenticated)\",\n      \"type\": \"UI\",\n      \"functionality\": \"paybills\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/billpay.htm\\\", \\\"payeeName\\\": \\\"Electric Company\\\", \\\"amount\\\": \\\"75\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 90,\n      \"tags\": \"ui,bills,screenshot,step4\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 5: Find Transactions (Authenticated)\",\n      \"type\": \"UI\",\n      \"functionality\": \"findtransactions\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/findtrans.htm\\\", \\\"transactionId\\\": \\\"12345\\\"}\",\n      \"priority\": \"MEDIUM\",\n      \"timeout\": 90,\n      \"tags\": \"ui,transactions,screenshot,step5\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 6: Update Profile (Authenticated)\",\n      \"type\": \"UI\",\n      \"functionality\": \"updateprofile\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/updateprofile.htm\\\", \\\"firstName\\\": \\\"UpdatedJohn\\\"}\",\n      \"priority\": \"MEDIUM\",\n      \"timeout\": 90,\n      \"tags\": \"ui,profile,screenshot,step6\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 7: Request Loan (Authenticated)\",\n      \"type\": \"UI\",\n      \"functionality\": \"requestloan\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/requestloan.htm\\\", \\\"amount\\\": \\\"5000\\\", \\\"downPayment\\\": \\\"1000\\\"}\",\n      \"priority\": \"MEDIUM\",\n      \"timeout\": 90,\n      \"tags\": \"ui,loan,screenshot,step7\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"UI Step 8: Logout (Final Step)\",\n      \"type\": \"UI\",\n      \"functionality\": \"logout\",\n      \"testData\": \"{\\\"pageUrl\\\": \\\"https://parabank.parasoft.com/parabank/index.htm\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 60,\n      \"tags\": \"ui,logout,screenshot,step8\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"API 1: Login Authentication\",\n      \"type\": \"API\",\n      \"functionality\": \"login\",\n      \"testData\": \"{\\\"endpoint\\\": \\\"https://parabank.parasoft.com/parabank/services/bank/login\\\", \\\"username\\\": \\\"testuser\\\", \\\"password\\\": \\\"testpass\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 30,\n      \"tags\": \"api,login,essential\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"API 2: Create Customer\",\n      \"type\": \"API\",\n      \"functionality\": \"createcustomer\",\n      \"testData\": \"{\\\"endpoint\\\": \\\"https://parabank.parasoft.com/parabank/services/bank/createCustomer\\\", \\\"firstName\\\": \\\"John\\\", \\\"lastName\\\": \\\"Doe\\\", \\\"username\\\": \\\"testuser_api\\\"}\",\n      \"priority\": \"HIGH\",\n      \"timeout\": 30,\n      \"tags\": \"api,customer,essential\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    },\n    {\n      \"name\": \"API 3: Health Check Validation\",\n      \"type\": \"API\",\n      \"functionality\": \"validateapi\",\n      \"testData\": \"{\\\"endpoint\\\": \\\"https://jsonplaceholder.typicode.com/posts/1\\\"}\",\n      \"priority\": \"MEDIUM\",\n      \"timeout\": 30,\n      \"tags\": \"api,validation,essential\",\n      \"testSuiteId\": \"{{suiteId}}\"\n    }\n  ]\n}"
+						},
+						"url": {"raw": "{{baseUrl}}/tests/integrate/batch", "host": ["{{baseUrl}}"], "path": ["tests", "integrate", "batch"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "Section 2: Execute Complete UI + API Suite",
+			"item": [
+				{
+					"name": "2.1 Execute UI Testing Suite + 3 API Tests",
+					"event": [{
+						"listen": "test",
+						"script": {
+							"exec": [
+								"if (pm.response.code === 200 || pm.response.code === 201) {",
+								"    const responseJson = pm.response.json();",
+								"    if (responseJson.data && responseJson.data.runId) {",
+								"        pm.collectionVariables.set('runId', responseJson.data.runId);",
+								"        console.log('✅ Execution Started - Run ID:', responseJson.data.runId);",
+								"        console.log('📊 Total Tests:', responseJson.data.totalTests);",
+								"        console.log('📱 UI Tests will show Chrome browser with extended visibility');",
+								"        console.log('🔐 Authentication sequence: Signup → Login → Operations');",
+								"        console.log('🌐 API Tests will run in parallel');",
+								"    }",
+								"} else {",
+								"    console.log('❌ Execution Failed:', pm.response.text());",
+								"}"
+							]
+						}
+					}],
+					"request": {
+						"method": "POST",
+						"header": [{"key": "Content-Type", "value": "application/json"}],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"suiteId\": \"{{suiteId}}\",\n  \"parallel\": true,\n  \"threadPoolSize\": 3,\n  \"environment\": \"default\",\n  \"timeout\": 600,\n  \"retryCount\": 1\n}"
+						},
+						"url": {"raw": "{{baseUrl}}/suites/execute", "host": ["{{baseUrl}}"], "path": ["suites", "execute"]}
+					}
+				},
+				{
+					"name": "2.2 Check Execution Status & Results",
+					"event": [{
+						"listen": "test",
+						"script": {
+							"exec": [
+								"if (pm.response.code === 200) {",
+								"    const responseJson = pm.response.json();",
+								"    console.log('📊 Execution Status:', responseJson.status);",
+								"    console.log('📈 Progress:', responseJson.completedTests + '/' + responseJson.totalTests);",
+								"    ",
+								"    if (responseJson.results && responseJson.results.length > 0) {",
+								"        console.log('\\n🔍 Test Results Summary:');",
+								"        let uiTests = responseJson.results.filter(r => r.testCaseName.startsWith('UI'));",
+								"        let apiTests = responseJson.results.filter(r => r.testCaseName.startsWith('API'));",
+								"        ",
+								"        console.log('📱 UI Tests (' + uiTests.length + '):');",
+								"        uiTests.forEach(test => {",
+								"            console.log('  ' + (test.status === 'PASSED' ? '✅' : '❌') + ' ' + test.testCaseName);",
+								"            if (test.screenshotPath) {",
+								"                console.log('    📸 Screenshot: ' + test.screenshotPath);",
+								"            }",
+								"        });",
+								"        ",
+								"        console.log('🌐 API Tests (' + apiTests.length + '):');",
+								"        apiTests.forEach(test => {",
+								"            console.log('  ' + (test.status === 'PASSED' ? '✅' : '❌') + ' ' + test.testCaseName + ' (Status: ' + test.statusCode + ')');",
+								"        });",
+								"    }",
+								"}"
+							]
+						}
+					}],
+					"request": {
+						"method": "GET",
+						"url": {"raw": "{{baseUrl}}/execution/status/{{runId}}", "host": ["{{baseUrl}}"], "path": ["execution", "status", "{{runId}}"]}
+					}
+				}
+			]
+		},
+		{
+			"name": "Section 3: Generate & Download Reports",
+			"item": [
+				{
+					"name": "3.1 Generate Complete Test Report",
+					"event": [{
+						"listen": "test",
+						"script": {
+							"exec": [
+								"if (pm.response.code === 200) {",
+								"    console.log('✅ HTML Report Generated Successfully');",
+								"    console.log('📊 Report includes all UI screenshots and API results');",
+								"    console.log('📋 Report covers sequential UI testing workflow + 3 API tests');",
+								"} else {",
+								"    console.log('❌ Report Generation Failed:', pm.response.text());",
+								"}"
+							]
+						}
+					}],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/reports/generate?runId={{runId}}&format=HTML&includeDetails=true&title=UI Testing Sequential Workflow + 3 API Tests Report",
+							"host": ["{{baseUrl}}"],
+							"path": ["reports", "generate"],
+							"query": [
+								{"key": "runId", "value": "{{runId}}"},
+								{"key": "format", "value": "HTML"},
+								{"key": "includeDetails", "value": "true"},
+								{"key": "title", "value": "UI Testing Sequential Workflow + 3 API Tests Report"}
+							]
+						}
+					}
+				},
+				{
+					"name": "3.2 Download Complete Report",
+					"event": [{
+						"listen": "test",
+						"script": {
+							"exec": [
+								"if (pm.response.code === 200) {",
+								"    console.log('📥 Report Downloaded Successfully');",
+								"    console.log('📂 Check your downloads folder for the HTML report');",
+								"    console.log('🎯 Report contains:');",
+								"    console.log('   📱 UI Test Screenshots (Steps 0-8)');",
+								"    console.log('   🌐 API Test Results (3 essential tests)');",
+								"    console.log('   📊 Execution Summary & Metrics');",
+								"} else {",
+								"    console.log('❌ Report Download Failed:', pm.response.text());",
+								"}"
+							]
+						}
+					}],
+					"request": {
+						"method": "GET",
+						"url": {
+							"raw": "{{baseUrl}}/reports/generate?runId={{runId}}&format=HTML&download=true&title=Downloaded UI + API Test Report",
+							"host": ["{{baseUrl}}"],
+							"path": ["reports", "generate"],
+							"query": [
+								{"key": "runId", "value": "{{runId}}"},
+								{"key": "format", "value": "HTML"},
+								{"key": "download", "value": "true"},
+								{"key": "title", "value": "Downloaded UI + API Test Report"}
+							]
+						}
+					}
+				}
+			]
+		}
+	]
+}

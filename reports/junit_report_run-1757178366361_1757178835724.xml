@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test Run: run-1757178366361" tests="5" failures="1" errors="0" skipped="0" time="7.500" timestamp="2025-09-06T22:43:55.7317324" hostname="DESKTOP-OM194PS">
+<properties>
+<property name="run.id" value="run-1757178366361"></property>
+<property name="run.status" value="COMPLETED"></property>
+<property name="run.totalTests" value="5"></property>
+<property name="run.completedTests" value="5"></property>
+<property name="framework.name" value="Test Integration Framework"></property>
+<property name="framework.version" value="1.0.0"></property>
+<property name="java.version" value="24.0.2"></property>
+<property name="os.name" value="Windows 10"></property>
+<property name="timestamp" value="2025-09-06T22:43:55.7487314"></property>
+</properties>
+<testcase name="UI User Registration" classname="TestCase" time="1.500" id="139">
+<properties>
+<property name="testcase.id" value="139"></property>
+<property name="http.statusCode" value="0"></property>
+<property name="screenshot.path" value=".\reports\screenshots\mockRegisterTest_20250906_223615_91c93a9b-9522-4b61-a9c7-9369f9540ce9.png"></property>
+</properties>
+</testcase>
+<testcase name="API User Registration" classname="TestCase" time="1.500" id="138">
+<properties>
+<property name="testcase.id" value="138"></property>
+<property name="http.statusCode" value="200"></property>
+</properties>
+</testcase>
+<testcase name="UI Login Test" classname="TestCase" time="1.500" id="141">
+<properties>
+<property name="testcase.id" value="141"></property>
+<property name="http.statusCode" value="0"></property>
+<property name="screenshot.path" value=".\reports\screenshots\loginTest_20250906_223630_198d54bc-acfc-401c-9d85-6d32a038d112.png"></property>
+</properties>
+</testcase>
+<testcase name="API Login Test" classname="TestCase" time="1.500" id="140">
+<properties>
+<property name="testcase.id" value="140"></property>
+<property name="http.statusCode" value="200"></property>
+</properties>
+</testcase>
+<testcase name="API Transfer Funds" classname="TestCase" time="1.500" id="142">
+<failure message="" type="TestFailure"><![CDATA[Details: Transfer funds API test - Status: 400, Amount: 100 | Content-Type: text/plain;charset=UTF-8
+Response: Could not find account number 12345 and/or 67890
+Status Code: 400
+]]></failure>
+<properties>
+<property name="testcase.id" value="142"></property>
+<property name="http.statusCode" value="400"></property>
+</properties>
+</testcase>
+<system-err><![CDATA[Test Execution Error Output
+===========================
+]]></system-err>
+</testsuite>

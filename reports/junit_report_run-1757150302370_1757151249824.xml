@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="Test Run: run-1757150302370" tests="3" failures="3" errors="0" skipped="0" time="4.500" timestamp="2025-09-06T15:04:09.8341931" hostname="DESKTOP-OM194PS">
+<properties>
+<property name="run.id" value="run-1757150302370"></property>
+<property name="run.status" value="COMPLETED"></property>
+<property name="run.totalTests" value="3"></property>
+<property name="run.completedTests" value="3"></property>
+<property name="framework.name" value="Test Integration Framework"></property>
+<property name="framework.version" value="1.0.0"></property>
+<property name="java.version" value="24.0.2"></property>
+<property name="os.name" value="Windows 10"></property>
+<property name="timestamp" value="2025-09-06T15:04:09.8409836"></property>
+</properties>
+<testcase name="API Request Loan" classname="TestCase" time="1.500" id="94">
+<failure message="" type="TestFailure"><![CDATA[Details: Request loan API test - Status: 400, Amount: 5000.0 | Content-Type: text/plain;charset=UTF-8
+Response: Cannot invoke "java.math.BigDecimal.compareTo(java.math.BigDecimal)" because the return value of "com.parasoft.parabank.domain.LoanRequest.getDownPayment()" is null
+Status Code: 400
+]]></failure>
+<properties>
+<property name="testcase.id" value="94"></property>
+<property name="http.statusCode" value="400"></property>
+</properties>
+</testcase>
+<testcase name="Login API Test" classname="TestCase" time="1.500" id="95">
+<failure message="" type="TestFailure"><![CDATA[Details: Login API test for user 'john' - Status: 400 | Content-Type: text/plain;charset=UTF-8
+Response: Invalid username and/or password
+Status Code: 400
+]]></failure>
+<properties>
+<property name="testcase.id" value="95"></property>
+<property name="http.statusCode" value="400"></property>
+</properties>
+</testcase>
+<testcase name="Login API Test" classname="TestCase" time="1.500" id="96">
+<failure message="" type="TestFailure"><![CDATA[Details: Login API test for user 'john' - Status: 400 | Content-Type: text/plain;charset=UTF-8
+Response: Invalid username and/or password
+Status Code: 400
+]]></failure>
+<properties>
+<property name="testcase.id" value="96"></property>
+<property name="http.statusCode" value="400"></property>
+</properties>
+</testcase>
+<system-err><![CDATA[Test Execution Error Output
+===========================
+]]></system-err>
+</testsuite>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Test Execution Report - Comparison Report</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        .report-header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 30px 0;
+    margin-bottom: 30px;
+}
+.metric-card {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    border-left: 4px solid #007bff;
+}
+.metric-value {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+}
+.metric-label {
+    color: #666;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+.status-passed { color: #28a745; font-weight: bold; }
+.status-failed { color: #dc3545; font-weight: bold; }
+.status-pending { color: #ffc107; font-weight: bold; }
+.chart-container {
+    background: white;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+.test-result-row:hover {
+    background-color: #f8f9fa;
+}
+.screenshot-link {
+    color: #007bff;
+    text-decoration: none;
+}
+.screenshot-link:hover {
+    text-decoration: underline;
+}
+.progress-custom {
+    height: 10px;
+    border-radius: 5px;
+}
+.footer {
+    background-color: #f8f9fa;
+    padding: 20px 0;
+    margin-top: 40px;
+    border-top: 1px solid #dee2e6;
+}
+
+    </style>
+</head>
+<body>
+<div class="report-header">
+    <div class="container">
+        <h1 class="mb-0">Test Execution Comparison Report</h1>
+        <p class="lead mb-0">Comparing 2 test runs</p>
+        <p class="mb-0">Generated: 2025-09-06 15:09:41</p>
+    </div>
+</div>
+<div class="container">
+    <h2>Comparison Summary</h2>
+    <div class="row">
+        <div class="col-md-4">
+    <div class="card">
+        <div class="card-header">
+            <h6 class="card-title">run-1757150302370</h6>
+        </div>
+        <div class="card-body">
+            <p><strong>Total:</strong> 3</p>
+            <p><strong>Completed:</strong> 3</p>
+            <p><strong>Success Rate:</strong> 0.0%</p>
+            <p><strong>Status:</strong> COMPLETED</p>
+        </div>
+    </div>
+</div>
+
+    </div>
+</div>
+<div class="container">
+    <div class="chart-container">
+        <h4>Execution Comparison Charts</h4>
+        <p class="text-muted">Comparison charts would be rendered here with Chart.js</p>
+    </div>
+</div>
+<div class="container">
+    <h2>Detailed Comparison</h2>
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead class="table-dark">
+                <tr>
+                    <th>Run ID</th>
+                    <th>Total Tests</th>
+                    <th>Completed</th>
+                    <th>Success Rate</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+    <td>run-1757150302370</td>
+    <td>3</td>
+    <td>3</td>
+    <td>0.0%</td>
+    <td><span class="badge bg-secondary">COMPLETED</span></td>
+</tr>
+
+            </tbody>
+        </table>
+    </div>
+</div>
+<div class="footer">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6">
+                <p class="text-muted mb-0">&copy; 2025 Test Framework - Execution Report</p>
+            </div>
+            <div class="col-md-6 text-end">
+                <p class="text-muted mb-0">Generated on 2025-09-06 15:09:41</p>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

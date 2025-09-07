@@ -1,0 +1,44 @@
+# Test Execution Summary
+# Generated: 2025-09-06T22:43:39.8590596
+
+Metric,Value
+Run ID,run-1757178366361
+Status,COMPLETED
+Total Tests,5
+Completed Tests,5
+Passed Tests,4
+Failed Tests,1
+Skipped Tests,0
+Success Rate %,80.00
+
+
+# Detailed Test Results
+
+Test Case ID,Test Name,Status,Details,Error Message,Response Body,Status Code,Screenshot Path
+139,UI User Registration,PASSED,Mock registration successful (Google loaded),,,0,.\reports\screenshots\mockRegisterTest_20250906_223615_91c93a9b-9522-4b61-a9c7-9369f9540ce9.png
+138,API User Registration,PASSED,"Mock Create customer API test - Status: 200, User: testuser",,"<?xml version=""1.0"" encoding=""UTF-8""?>
+<customer>
+<id>12345</id>
+<firstName>John</firstName>
+<lastName>Doe</lastName>
+<username>testuser</username>
+</customer>",200,
+141,UI Login Test,PASSED,Login successful for user: testuser_ui,,,0,.\reports\screenshots\loginTest_20250906_223630_198d54bc-acfc-401c-9d85-6d32a038d112.png
+140,API Login Test,PASSED,Mock Login API test for user 'testuser' - Status: 200,,"<?xml version=""1.0"" encoding=""UTF-8""?>
+<customer>
+<id>12345</id>
+<firstName>John</firstName>
+<lastName>Doe</lastName>
+<username>testuser</username>
+</customer>",200,
+142,API Transfer Funds,FAILED,"Transfer funds API test - Status: 400, Amount: 100 | Content-Type: text/plain;charset=UTF-8",,Could not find account number 12345 and/or 67890,400,
+
+
+# Test Statistics
+
+Status,Count,Percentage
+FAILED,1,20.00
+PASSED,4,80.00
+
+# Error Analysis
+

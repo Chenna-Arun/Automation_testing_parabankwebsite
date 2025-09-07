@@ -1,0 +1,17 @@
+# Performance Metrics Report
+# Generated: 2025-09-06T22:44:05.8966766
+
+Metric,Value,Unit
+Total Test Count,5,count
+Completed Test Count,5,count
+Result Set Size,5,count
+Average Execution Time,1.5,seconds
+Total Execution Time,7.5,seconds
+
+
+# Error Analysis
+
+Total Failed Tests,1
+
+Failed Test Name,Error Message,Status Code
+API Transfer Funds,,400

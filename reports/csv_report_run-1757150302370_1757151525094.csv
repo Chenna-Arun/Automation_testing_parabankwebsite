@@ -1,0 +1,29 @@
+# Test Execution Summary
+# Generated: 2025-09-06T15:08:45.0946281
+
+Metric,Value
+Run ID,run-1757150302370
+Status,COMPLETED
+Total Tests,3
+Completed Tests,3
+Passed Tests,0
+Failed Tests,3
+Skipped Tests,0
+Success Rate %,0.00
+
+
+# Detailed Test Results
+
+Test Case ID,Test Name,Status,Details,Error Message,Response Body,Status Code,Screenshot Path
+94,API Request Loan,FAILED,"Request loan API test - Status: 400, Amount: 5000.0 | Content-Type: text/plain;charset=UTF-8",,"Cannot invoke ""java.math.BigDecimal.compareTo(java.math.BigDecimal)"" because the return value of ""com.parasoft.parabank.domain.LoanRequest.getDownPayment()"" is null",400,
+95,Login API Test,FAILED,Login API test for user 'john' - Status: 400 | Content-Type: text/plain;charset=UTF-8,,Invalid username and/or password,400,
+96,Login API Test,FAILED,Login API test for user 'john' - Status: 400 | Content-Type: text/plain;charset=UTF-8,,Invalid username and/or password,400,
+
+
+# Test Statistics
+
+Status,Count,Percentage
+FAILED,3,100.00
+
+# Error Analysis
+

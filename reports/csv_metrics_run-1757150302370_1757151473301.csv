@@ -1,0 +1,19 @@
+# Performance Metrics Report
+# Generated: 2025-09-06T15:07:53.301683
+
+Metric,Value,Unit
+Total Test Count,3,count
+Completed Test Count,3,count
+Result Set Size,3,count
+Average Execution Time,1.5,seconds
+Total Execution Time,4.5,seconds
+
+
+# Error Analysis
+
+Total Failed Tests,3
+
+Failed Test Name,Error Message,Status Code
+API Request Loan,,400
+Login API Test,,400
+Login API Test,,400

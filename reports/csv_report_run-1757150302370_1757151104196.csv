@@ -1,0 +1,21 @@
+# Test Execution Summary
+# Generated: 2025-09-06T15:01:44.1960848
+
+Metric,Value
+Run ID,run-1757150302370
+Status,COMPLETED
+Total Tests,3
+Completed Tests,3
+Passed Tests,0
+Failed Tests,3
+Skipped Tests,0
+Success Rate %,0.00
+
+
+# Test Statistics
+
+Status,Count,Percentage
+FAILED,3,100.00
+
+# Error Analysis
+
